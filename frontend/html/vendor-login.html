@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <title>
+    Vendor Portal | Azma Marketplace
+  </title>
+
+  <link
+    rel="stylesheet"
+    href="../css/vendor-login.css"
+  >
+
+  <!-- =====================================================
+       PI NETWORK SDK
+  ====================================================== -->
+
+  <script
+    src="https://sdk.minepi.com/pi-sdk.js"
+  ></script>
+
+</head>
+
+
+<body>
+
+
+  <div class="login-container">
+
+
+    <!-- ===================================================
+         TITLE
+    ==================================================== -->
+
+    <h2>
+      🏪 Vendor Portal
+    </h2>
+
+
+    <p>
+      Sell your products through Pi Network.
+    </p>
+
+
+
+    <!-- ===================================================
+         LOGIN SECTION
+    ==================================================== -->
+
+    <section id="loginSection">
+
+
+      <button
+        id="piLoginBtn"
+        type="button"
+        onclick="loginWithPi()"
+      >
+        π Continue with Pi
+      </button>
+
+
+      <p id="loginMsg"></p>
+
+
+    </section>
+
+
+
+    <!-- ===================================================
+         VENDOR REGISTRATION
+    ==================================================== -->
+
+    <section
+      id="registerSection"
+      class="hidden"
+    >
+
+      <h3>
+        Become a Vendor
+      </h3>
+
+
+      <p>
+        Your Pi account will be verified and your
+        application will be reviewed by an Admin.
+      </p>
+
+
+
+      <form id="vendorForm">
+
+
+        <!-- ===============================================
+             PERSONAL INFORMATION
+        ================================================ -->
+
+        <input
+          id="vendorName"
+          type="text"
+          required
+          placeholder="Your full name"
+          autocomplete="name"
+        >
+
+
+
+        <!-- ===============================================
+             BUSINESS INFORMATION
+        ================================================ -->
+
+        <input
+          id="businessName"
+          type="text"
+          required
+          placeholder="Business name"
+          autocomplete="organization"
+        >
+
+
+        <input
+          id="businessPhone"
+          type="tel"
+          placeholder="Phone number"
+          autocomplete="tel"
+        >
+
+
+        <input
+          id="businessLocation"
+          type="text"
+          required
+          placeholder="Business location"
+          autocomplete="street-address"
+        >
+
+
+        <textarea
+          id="businessDescription"
+          placeholder="Tell us about your business"
+        ></textarea>
+
+
+
+        <!-- ===============================================
+             WALLET INFORMATION
+        ================================================ -->
+
+        <p class="wallet-info">
+
+          🔐 Your Pi wallet address will be securely
+          obtained from Pi when you grant wallet permission.
+
+        </p>
+
+
+
+        <!-- ===============================================
+             SUBMIT
+        ================================================ -->
+
+        <button
+          id="registerBtn"
+          type="submit"
+        >
+          Submit Vendor Application
+        </button>
+
+
+      </form>
+
+
+      <p id="registerMsg"></p>
+
+
+
+      <button
+        type="button"
+        class="secondary"
+        onclick="showLogin()"
+      >
+        Back to Vendor Login
+      </button>
+
+
+    </section>
+
+
+
+    <!-- ===================================================
+         REGISTER PROMPT
+    ==================================================== -->
+
+    <div id="registerPrompt">
+
+      <hr>
+
+      <p>
+        Don't have a vendor account?
+      </p>
+
+
+      <button
+        type="button"
+        onclick="showRegister()"
+      >
+        Register as Vendor
+      </button>
+
+    </div>
+
+
+  </div>
+
+
+
+  <!-- =====================================================
+       VENDOR LOGIN JAVASCRIPT
+  ====================================================== -->
+
+  <script
+    src="../js/vendor-login.js"
+  ></script>
+
+
+</body>
+
+</html>

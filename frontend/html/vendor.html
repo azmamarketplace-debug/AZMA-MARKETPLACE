@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Vendor Dashboard | Azma Marketplace</title>
+<link rel="stylesheet" href="../css/vendor.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+<script src="https://sdk.minepi.com/pi-sdk.js"></script>
+</head>
+<body>
+<div class="container">
+  <h2>🏪 Vendor Dashboard</h2>
+  <p>Only approved vendors can access this page.</p>
+
+  <button onclick="logout()" style="background:red;color:white;padding:10px;border:0;border-radius:8px;">Logout</button>
+  <hr>
+
+  <form id="productForm">
+    <input id="name" type="text" placeholder="Product name" required>
+    <input id="price_pi" type="number" step="0.01" min="0.01" placeholder="Price in Pi" required>
+    <input id="location" type="text" placeholder="Location" required>
+    <input id="stock" type="number" min="0" placeholder="Stock quantity" required>
+    <input id="image" type="file" accept="image/jpeg,image/png,image/webp" required>
+    <button id="submitBtn" type="submit">Add Product</button>
+  </form>
+
+  <hr>
+  <h3>📦 My Products Management</h3>
+
+<p>
+  Manage your marketplace products.
+  You can delist or relist your products at any time.
+</p>
+
+<div id="myProducts"></div>
+
+<hr>
+
+<h3>📦 Customer Orders</h3>
+
+<p>
+  Review orders for your products. If a buyer requests a
+  refund because the product was not received, you can
+  cancel the order here. The order will then become eligible
+  for Admin refund processing.
+</p>
+
+<div id="vendorOrders">
+  <p>Loading orders...</p>
+</div>
+
+<hr>
+
+<h3>💬 Admin Support</h3>
+
+<p>
+  Contact the marketplace administrators about refunds,
+  orders, payouts or any other issue.
+</p>
+
+<a
+  href="support.html"
+  style="display:block;text-align:center;padding:12px;background:#6c5ce7;color:#fff;text-decoration:none;border-radius:8px;"
+>
+  Open Support Chat
+</a>
+</div>
+
+<nav class="bottom-navigation">
+  <button onclick="goHome()"><i class="fa-solid fa-house"></i><span>Home</span></button>
+  <button class="active" onclick="goVendor()"><i class="fa-solid fa-store"></i><span>Vendor</span></button>
+  <button onclick="goProfile()"><i class="fa-solid fa-user"></i><span>Profile</span></button>
+</nav>
+
+<script src="../js/vendor.js"></script>
+</body>
+</html>

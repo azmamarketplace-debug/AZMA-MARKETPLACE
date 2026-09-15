@@ -1,0 +1,1063 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Admin Dashboard - Azma Marketplace</title>
+
+<link rel="stylesheet" href="../css/admin.css">
+</head>
+
+<body>
+
+<!-- =====================================================
+     COMPACT ADMIN TOP BAR
+===================================================== -->
+
+<header class="admin-topbar">
+
+  <div class="admin-brand">
+    <span class="admin-brand-icon">🔥</span>
+
+    <div>
+      <strong>Admin Panel</strong>
+      <small>Azma Marketplace</small>
+    </div>
+  </div>
+
+  <button
+    type="button"
+    class="admin-menu-toggle"
+    id="adminMenuToggle"
+    aria-label="Open admin menu"
+    aria-expanded="false"
+    onclick="toggleAdminMenu()"
+  >
+    ⋮
+  </button>
+
+</header>
+
+
+<!-- =====================================================
+     COMPACT THREE-DOT ADMIN MENU
+===================================================== -->
+
+<div
+  class="admin-menu"
+  id="adminMenu"
+>
+
+  <button
+    type="button"
+    class="admin-menu-item active-menu-item"
+    onclick="showSection('dashboard')"
+  >
+    <span>📊</span>
+    <span>Dashboard</span>
+  </button>
+
+  <button
+    type="button"
+    class="admin-menu-item"
+    onclick="showSection('products')"
+  >
+    <span>📦</span>
+    <span>Products</span>
+  </button>
+
+  <button
+    type="button"
+    class="admin-menu-item"
+    onclick="showSection('orders')"
+  >
+    <span>🛒</span>
+    <span>Orders</span>
+  </button>
+
+  <button
+    type="button"
+    class="admin-menu-item"
+    onclick="showSection('refunds')"
+  >
+    <span>💸</span>
+    <span>Refunds</span>
+  </button>
+
+  <button
+    type="button"
+    class="admin-menu-item"
+    onclick="showSection('support')"
+  >
+    <span>💬</span>
+    <span>Support Chat</span>
+  </button>
+
+  <button
+    type="button"
+    class="admin-menu-item"
+    onclick="showSection('vendors')"
+  >
+    <span>🏪</span>
+    <span>Vendors</span>
+  </button>
+
+  <button
+    type="button"
+    class="admin-menu-item"
+    onclick="showSection('approvals')"
+  >
+    <span>✅</span>
+    <span>Approvals</span>
+  </button>
+
+  <button
+    type="button"
+    class="admin-menu-item"
+    onclick="showSection('roles')"
+  >
+    <span>👤</span>
+    <span>Role Manager</span>
+  </button>
+
+  <button
+    type="button"
+    class="admin-menu-item"
+    onclick="showSection('payouts')"
+  >
+    <span>💰</span>
+    <span>Vendor Payouts</span>
+  </button>
+
+  <button
+    type="button"
+    class="admin-menu-item"
+    id="invitationMenuBtn"
+    onclick="showSection('invitations')"
+  >
+    <span>✉️</span>
+    <span>Invitations</span>
+  </button>
+
+  <button
+    type="button"
+    class="admin-menu-item"
+    id="adminRequestsMenuBtn"
+    onclick="showSection('adminRequests')"
+  >
+    <span>📨</span>
+    <span>Admin Requests</span>
+  </button>
+
+  <button
+    type="button"
+    class="admin-menu-item"
+    id="administratorsMenuBtn"
+    onclick="showSection('administrators')"
+  >
+    <span>👑</span>
+    <span>Administrators</span>
+  </button>
+
+  <button
+    type="button"
+    class="admin-menu-item"
+    id="withdrawalsMenuButton"
+    onclick="showSection('withdrawals')"
+  >
+    <span>💳</span>
+    <span>Withdrawals</span>
+  </button>
+
+  <button
+    type="button"
+    class="admin-menu-item admin-logout-item"
+    onclick="logout()"
+  >
+    <span>🚪</span>
+    <span>Logout</span>
+  </button>
+
+</div>
+
+
+<!-- =====================================================
+     MAIN
+===================================================== -->
+
+
+
+<div class="main">
+
+
+<!-- =====================================================
+     DASHBOARD
+===================================================== -->
+
+<section
+  id="dashboard"
+  class="section active"
+>
+
+  <h1>Overview</h1>
+
+  <div class="cards">
+
+    <div class="card">
+
+      <h3>Total Sales</h3>
+
+      <p id="sales">
+        0 Pi
+      </p>
+
+    </div>
+
+
+    <div class="card">
+
+      <h3>Orders</h3>
+
+      <p id="ordersCount">
+        0
+      </p>
+
+    </div>
+
+
+    <div class="card">
+
+      <h3>Vendors</h3>
+
+      <p id="vendorsCount">
+        0
+      </p>
+
+    </div>
+
+
+    <div class="card">
+
+      <h3>Products</h3>
+
+      <p id="productsCount">
+        0
+      </p>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- =====================================================
+     PRODUCTS MANAGEMENT
+===================================================== -->
+
+<section
+  id="products"
+  class="section"
+>
+
+  <h1>Products Management</h1>
+
+  <p>
+    Manage all marketplace products, including
+    approval status, listing visibility and deletion.
+  </p>
+
+
+  <div
+    class="product-management-toolbar"
+  >
+
+    <button
+      type="button"
+      onclick="loadAdminProducts()"
+    >
+      🔄 Refresh
+    </button>
+
+    <select
+      id="adminProductFilter"
+      onchange="renderAdminProducts()"
+    >
+
+      <option value="all">
+        All Products
+      </option>
+
+      <option value="pending">
+        Pending
+      </option>
+
+      <option value="approved">
+        Approved
+      </option>
+
+      <option value="listed">
+        Listed
+      </option>
+
+      <option value="delisted">
+        Delisted
+      </option>
+
+      <option value="rejected">
+        Rejected
+      </option>
+
+      <option value="suspended">
+        Suspended
+      </option>
+
+    </select>
+
+  </div>
+
+
+  <div
+    id="adminProducts"
+  >
+
+    <p>
+      Loading products...
+    </p>
+
+  </div>
+
+</section>
+
+<!-- =====================================================
+     ORDERS
+===================================================== -->
+
+<section
+  id="orders"
+  class="section"
+>
+
+  <h1>Orders</h1>
+
+  <div id="adminOrders"></div>
+
+</section>
+
+<!-- =====================================================
+     REFUNDS
+===================================================== -->
+
+<section
+  id="refunds"
+  class="section"
+>
+
+  <h1>💸 Refund Management</h1>
+
+  <p>
+    Review buyer refund cases. A vendor must cancel the
+    order before an Admin can release the Pi refund.
+  </p>
+
+  <button type="button" onclick="loadAdminRefunds()">
+    🔄 Refresh Refunds
+  </button>
+
+  <div id="adminRefunds">
+    <p>Open Refunds to load cases.</p>
+  </div>
+
+</section>
+
+
+<!-- =====================================================
+     SUPPORT CHAT
+===================================================== -->
+
+<section
+  id="support"
+  class="section"
+>
+
+  <h1>💬 Support Chat</h1>
+
+  <p>
+    Chat directly with buyers and vendors about orders,
+    refunds, delivery and pending vendor payouts.
+  </p>
+
+  <button type="button" onclick="loadAdminSupport()">
+    🔄 Refresh Conversations
+  </button>
+
+  <div id="adminSupportList">
+    <p>Open Support Chat to load conversations.</p>
+  </div>
+
+  <div
+    id="adminSupportChat"
+    style="display:none;"
+  >
+    <div id="adminSupportMessages"></div>
+
+    <textarea
+      id="adminSupportMessage"
+      rows="4"
+      maxlength="5000"
+      placeholder="Write your reply..."
+      style="width:100%;box-sizing:border-box;margin-top:12px;padding:12px;border-radius:8px;border:1px solid #ccc;"
+    ></textarea>
+
+    <button
+      type="button"
+      onclick="sendAdminSupportMessage()"
+      style="margin-top:8px;"
+    >
+      Send Reply
+    </button>
+  </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     VENDORS
+===================================================== -->
+
+<section
+  id="vendors"
+  class="section"
+>
+
+  <h1>Vendors</h1>
+
+  <div id="adminVendors"></div>
+
+</section>
+
+
+
+<!-- =====================================================
+     APPROVALS
+===================================================== -->
+
+<section
+  id="approvals"
+  class="section"
+>
+
+  <h1>Approvals Dashboard</h1>
+
+
+  <div class="approval-grid">
+
+
+    <!-- PENDING VENDORS -->
+
+    <div class="approval-box">
+
+      <h3>
+        Pending Vendors
+      </h3>
+
+      <div
+        id="pendingVendors"
+        class="list-box"
+      >
+
+        <p>
+          No pending vendors
+        </p>
+
+      </div>
+
+    </div>
+
+
+    <!-- PENDING PRODUCTS -->
+
+    <div class="approval-box">
+
+      <h3>
+        Pending Products
+      </h3>
+
+      <div
+        id="pendingProducts"
+        class="list-box"
+      >
+
+        <p>
+          No pending products
+        </p>
+
+      </div>
+
+    </div>
+
+
+  </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     ROLE MANAGER
+===================================================== -->
+
+<section
+  id="roles"
+  class="section"
+>
+
+  <h1>
+    Role Manager
+  </h1>
+
+  <p>
+    Manage marketplace users and their
+    current roles.
+  </p>
+
+  <div id="usersList"></div>
+
+</section>
+
+
+
+<!-- =====================================================
+     SUPER ADMIN INVITATION CENTER
+===================================================== -->
+
+<section
+  id="invitations"
+  class="section"
+>
+
+  <h1>
+    ✉️ Super Admin Invitation Center
+  </h1>
+
+
+  <div class="card">
+
+    <h2>
+      Invite a New Administrator
+    </h2>
+
+    <p>
+      Only the Super Admin can invite a
+      user to become an administrator.
+    </p>
+
+
+    <form id="adminInvitationForm">
+
+
+      <!-- PI USERNAME -->
+
+      <label for="invitePiUsername">
+        Pi Username
+      </label>
+
+      <input
+        id="invitePiUsername"
+        name="pi_username"
+        type="text"
+        placeholder="Enter Pi username"
+        required
+      >
+
+      <label for="invitePiUid">
+  Pi UID
+</label>
+
+<input
+  id="invitePiUid"
+  name="pi_uid"
+  type="text"
+  placeholder="Optional if the user already exists in Azma Marketplace"
+>
+
+
+      <!-- ADMIN LEVEL -->
+
+      <label for="inviteAdminLevel">
+        Administrator Level
+      </label>
+
+      <select
+        id="inviteAdminLevel"
+        name="admin_level"
+        required
+      >
+
+        <option value="">
+          Select administrator level
+        </option>
+
+        <option value="admin">
+          Administrator
+        </option>
+
+        <option value="moderator">
+          Moderator
+        </option>
+
+      </select>
+
+
+      <!-- OPTIONAL MESSAGE -->
+
+      <label for="inviteMessage">
+        Invitation Message
+      </label>
+
+      <textarea
+        id="inviteMessage"
+        name="message"
+        rows="4"
+        placeholder="Optional message to the invited user..."
+      ></textarea>
+
+
+      <button
+        type="submit"
+        id="sendInvitationBtn"
+      >
+        ✉️ Send Invitation
+      </button>
+
+
+    </form>
+
+
+    <div
+      id="invitationMessage"
+      class="message-box"
+    ></div>
+
+  </div>
+
+
+
+  <!-- =================================================
+       ACTIVE / PENDING INVITATIONS
+  ================================================== -->
+
+  <div class="card">
+
+    <h2>
+      📋 Invitations
+    </h2>
+
+    <button
+      type="button"
+      onclick="loadAdminInvitations()"
+    >
+      🔄 Refresh Invitations
+    </button>
+
+
+    <div
+      id="adminInvitationsList"
+      class="list-box"
+    >
+
+      <p>
+        Loading invitations...
+      </p>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     ADMIN REQUESTS
+===================================================== -->
+
+<section
+  id="adminRequests"
+  class="section"
+>
+
+  <h1>
+    📨 Administrator Requests
+  </h1>
+
+
+  <div class="card">
+
+    <h2>
+      Pending Requests
+    </h2>
+
+    <p>
+      These requests are from users who
+      received a valid invitation and
+      applied for the administrator position.
+    </p>
+
+
+    <button
+      type="button"
+      onclick="loadAdminRequests()"
+    >
+      🔄 Refresh Requests
+    </button>
+
+
+    <div
+      id="adminRequestsList"
+      class="list-box"
+    >
+
+      <p>
+        Loading administrator requests...
+      </p>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     ADMINISTRATORS
+===================================================== -->
+
+<section
+  id="administrators"
+  class="section"
+>
+
+  <h1>
+    👑 Administrators
+  </h1>
+
+
+  <div class="card">
+
+    <h2>
+      Current Administrators
+    </h2>
+
+    <p>
+      Manage approved administrator
+      accounts from this section.
+    </p>
+
+
+    <button
+      type="button"
+      onclick="loadAdministrators()"
+    >
+      🔄 Refresh Administrators
+    </button>
+
+
+    <div
+      id="administratorsList"
+      class="list-box"
+    >
+
+      <p>
+        Loading administrators...
+      </p>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+  <!-- =====================================================
+     VENDOR PAYOUTS
+===================================================== -->
+
+<section
+  id="payouts"
+  class="section"
+>
+
+  <h1>
+    💰 Vendor Payouts
+  </h1>
+
+  <div class="card">
+
+    <h2>
+      Pending Vendor Earnings
+    </h2>
+
+    <p>
+      Approved administrators can release
+      eligible vendor earnings to the vendor's
+      Pi wallet address.
+    </p>
+
+    <button
+      type="button"
+      onclick="loadPendingPayouts()"
+    >
+      🔄 Refresh Payouts
+    </button>
+
+    <div
+      id="pendingPayouts"
+      class="list-box"
+    >
+
+      <p>
+        Loading pending payouts...
+      </p>
+
+    </div>
+
+  </div>
+
+</section>
+
+<!-- =====================================================
+     SUPER ADMIN INFORMATION
+===================================================== -->
+
+<section
+  id="superAdminInfo"
+  class="section"
+>
+
+  <h1>
+    👑 Super Admin Control
+  </h1>
+
+
+  <div class="card">
+
+    <h2>
+      Administrator Security
+    </h2>
+
+    <p>
+      The Super Admin controls administrator
+      invitations, administrator approvals,
+      administrator levels and administrator
+      removal.
+    </p>
+
+
+    <div class="security-notice">
+
+      <strong>
+        🔐 Important
+      </strong>
+
+      <p>
+        Users cannot become administrators
+        simply by requesting administrator
+        access.
+      </p>
+
+      <p>
+        A valid invitation from the Super Admin
+        is required before an administrator
+        request can be submitted.
+      </p>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<section
+    id="withdrawals"
+    class="section"
+>
+
+    <div class="section-header">
+
+        <div>
+
+            <h2>
+                <i class="fas fa-money-bill-transfer"></i>
+                Withdrawals
+            </h2>
+
+            <p>
+                Manage marketplace platform earnings
+                and distribute them according to admin shares.
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <!-- =====================================================
+         WITHDRAWAL SUMMARY
+    ====================================================== -->
+
+    <div class="withdrawal-summary">
+
+        <div class="withdrawal-card">
+
+            <span>
+                Available Platform Earnings
+            </span>
+
+            <strong id="availablePlatformEarnings">
+                0 Pi
+            </strong>
+
+        </div>
+
+
+        <div class="withdrawal-card">
+
+            <span>
+                Total Withdrawn
+            </span>
+
+            <strong id="totalWithdrawn">
+                0 Pi
+            </strong>
+
+        </div>
+
+
+        <div class="withdrawal-card">
+
+            <span>
+                Admin Share
+            </span>
+
+            <strong id="totalAdminPercentage">
+                0%
+            </strong>
+
+        </div>
+
+    </div>
+
+
+    <!-- =====================================================
+         ADMIN SHARES
+    ====================================================== -->
+
+    <div class="withdrawal-panel">
+
+        <h3>
+            Admin Distribution
+        </h3>
+
+        <p>
+            The total percentage must equal 100%.
+        </p>
+
+
+        <div id="adminSharesContainer">
+
+            <p>
+                Loading administrators...
+            </p>
+
+        </div>
+
+
+        <button
+            type="button"
+            onclick="saveAdminShares()"
+        >
+            Save Admin Shares
+        </button>
+
+    </div>
+
+
+    <!-- =====================================================
+         WITHDRAW
+    ====================================================== -->
+
+    <div class="withdrawal-panel">
+
+        <h3>
+            Platform Withdrawal
+        </h3>
+
+        <p>
+            Only the Super Admin can perform this operation.
+        </p>
+
+
+        <input
+            type="text"
+            id="withdrawalDescription"
+            placeholder="Withdrawal description"
+        />
+
+
+        <button
+            type="button"
+            onclick="startPlatformWithdrawal()"
+            id="startWithdrawalButton"
+        >
+            <i class="fas fa-money-bill-transfer"></i>
+
+            Withdraw Platform Earnings
+
+        </button>
+
+    </div>
+
+
+    <!-- =====================================================
+         HISTORY
+    ====================================================== -->
+
+    <div class="withdrawal-panel">
+
+        <h3>
+            Withdrawal History
+        </h3>
+
+
+        <div id="withdrawalHistory">
+
+            <p>
+                Loading withdrawal history...
+            </p>
+
+        </div>
+
+    </div>
+
+  </section>
+
+
+</div>
+
+  
+
+
+<!-- =====================================================
+     JAVASCRIPT
+===================================================== -->
+
+<script src="../js/admin.js"></script>
+<script src="../js/withdrawals.js"></script>
+
+</body>
+</html>
