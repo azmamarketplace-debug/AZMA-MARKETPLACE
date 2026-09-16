@@ -298,7 +298,7 @@ body {
 .cart-box h3 {
   text-align: center;
 
-  color: #111;
+  color: #06210F;
 
   margin-bottom: 15px;
 }
@@ -321,8 +321,7 @@ body {
 
   border-radius: 10px;
 
-  border-left: 4px soli;
-}C2830D;
+  border-left: 4px solid #007bff;
 }
 
 

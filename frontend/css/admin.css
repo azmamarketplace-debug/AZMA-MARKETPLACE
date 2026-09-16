@@ -37,7 +37,7 @@ body {
 
   padding: 10px 16px;
 
-  background: #111;
+  background: #0F3D1E;
   color: white;
 
   box-shadow: 0 3px 12px rgba(0,0,0,0.18);
@@ -83,7 +83,7 @@ body {
   border: 0;
   border-radius: 10px;
 
-  background: #222;
+  background: #0F3D1E;
   color: white;
 
   cursor: pointer;
@@ -122,7 +122,7 @@ body {
 
   padding: 8px;
 
-  background: #111;
+  background: #0F3D1E;
   border: 1px solid #333;
   border-radius: 12px;
 
@@ -161,7 +161,7 @@ body {
   border: 0;
   border-radius: 8px;
 
-  background: #222;
+  background: #0F3D1E;
   color: white;
 
   font-family: inherit;
