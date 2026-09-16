@@ -40,7 +40,7 @@
 
 <script>
 const API =
-  "https://charcoal-marketplace-main-production.up.railway.app/api";
+  "https://azma-backend-production.up.railway.app/api";
 
 const token =
   localStorage.getItem("token");
@@ -56,7 +56,7 @@ function headers() {
   };
 }
 
-function escapeHTML(value) {
+function escap  "aL(value) {
   return String(value ?? "")
     .replaceAll("&", "&amp;")
     .replaceAll("<", "&lt;")
@@ -366,8 +366,7 @@ function logoutBuyer() {
   localStorage.removeItem("user");
 
   window.location.href =
-    "../html/
-     e.html";
+    "../html/profile.html";
 }
 
 document.addEventListener(
