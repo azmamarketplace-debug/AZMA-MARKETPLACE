@@ -56,7 +56,7 @@ function headers() {
   };
 }
 
-function escap  "aL(value) {
+function escapeHTML(value) {
   return String(value ?? "")
     .replaceAll("&", "&amp;")
     .replaceAll("<", "&lt;")
