@@ -1,5 +1,5 @@
 const API =
-  "https://charcoal-marketplace-main-production.up.railway.app/api";
+  "https://azma-backend-production.up.railway.app/api";
 
 const token =
   localStorage.getItem("token");
@@ -8,7 +8,7 @@ const token =
 if (!token) {
 
   window.location.replace(
-    "vendor-login.html"
+    "../html/vendor-login.html"
   );
 
 }
@@ -39,7 +39,7 @@ function logout() {
   );
 
   window.location.href =
-    "vendor-login.html";
+    "../html/vendor-login.html";
 
 }
 
@@ -47,7 +47,7 @@ function logout() {
 function goHome() {
 
   window.location.href =
-    "home.html";
+    "../html/home.html";
 
 }
 
@@ -55,7 +55,7 @@ function goHome() {
 function goVendor() {
 
   window.location.href =
-    "vendor.html";
+    "../html/vendor.html";
 
 }
 
@@ -63,7 +63,7 @@ function goVendor() {
 function goProfile() {
 
   window.location.href =
-    "profile.html";
+    "../html/profile.html";
 
 }
 

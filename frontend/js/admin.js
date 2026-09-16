@@ -3,7 +3,7 @@
    ADMIN DASHBOARD
 ========================================================= */
 
-const API= "https://charcoal-marketplace-main-production.up.railway.app/api";
+const API= "https://azma-backend-production.up.railway.app/api";
 /* =========================================================
    AUTH STATE
 ========================================================= */
@@ -834,7 +834,7 @@ function logout() {
 
 
   window.location.replace(
-    "admin-login.html"
+    "../html/admin-login.html"
   );
 
 }

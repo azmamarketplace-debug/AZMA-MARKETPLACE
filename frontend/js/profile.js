@@ -8,7 +8,7 @@
 ========================= */
 
 const API_URL =
-  "https://charcoal-marketplace-main-production.up.railway.app/api";
+  "https://azma-backend-production.up.railway.app/api";
 
 
 /* =========================
@@ -846,7 +846,7 @@ function updateVendorStatus(user) {
 function goProfile() {
 
   window.location.href =
-    "profile.html";
+    "../html/profile.html";
 
 }
 
@@ -858,7 +858,7 @@ function goProfile() {
 function openOrders() {
 
   requireLogin(
-    "orders.html"
+    "../html/orders.html"
   );
 
 }
@@ -867,7 +867,7 @@ function openOrders() {
 function openCart() {
 
   requireLogin(
-    "cart.html"
+    "../html/cart.html"
   );
 
 }
@@ -876,7 +876,7 @@ function openCart() {
 function openSaved() {
 
   requireLogin(
-    "saved.html"
+    "../html/saved.html"
   );
 
 }
@@ -885,7 +885,7 @@ function openSaved() {
 function openNotifications() {
 
   requireLogin(
-    "notifications.html"
+    "../html/notifications.html"
   );
 
 }
@@ -894,7 +894,7 @@ function openNotifications() {
 function openPersonalInfo() {
 
   requireLogin(
-    "personal-info.html"
+    "../html/personal-info.html"
   );
 
 }
@@ -903,7 +903,7 @@ function openPersonalInfo() {
 function openSettings() {
 
   requireLogin(
-    "settings.html"
+    "../html/settings.html"
   );
 
 }
@@ -912,7 +912,7 @@ function openSettings() {
 function openSecurity() {
 
   requireLogin(
-    "security.html"
+    "../html/security.html"
   );
 
 }
@@ -921,7 +921,7 @@ function openSecurity() {
 function openSupport() {
 
   window.location.href =
-    "support.html";
+    "../html/support.html";
 
 }
 
@@ -945,7 +945,7 @@ function openVendorAccount() {
   if (!token) {
 
     window.location.href =
-      "vendor.html";
+      "../html/vendor.html";
 
     return;
 
@@ -961,7 +961,7 @@ function openVendorAccount() {
   if (!savedUser) {
 
     window.location.href =
-      "vendor.html";
+      "../html/vendor.html";
 
     return;
 
@@ -995,7 +995,7 @@ function openVendorAccount() {
     ) {
 
       window.location.href =
-        "vendor.html";
+        "../html/vendor.html";
 
       return;
 
@@ -1007,7 +1007,7 @@ function openVendorAccount() {
     ===================================================== */
 
     window.location.href =
-      "vendor.html";
+      "../html/vendor.html";
 
 
   } catch (error) {
@@ -1018,7 +1018,7 @@ function openVendorAccount() {
     );
 
     window.location.href =
-      "vendor.html";
+      "../html/vendor.html";
 
   }
 
@@ -1033,7 +1033,7 @@ function openVendorAccount() {
 function openEarnings() {
 
   requireLogin(
-    "vendor-earnings.html"
+    "../html/vendor-earnings.html"
   );
 
 }
@@ -1046,7 +1046,7 @@ function openEarnings() {
 function editProfile() {
 
   requireLogin(
-    "personal-info.html"
+    "../html/personal-info.html"
   );
 
 }

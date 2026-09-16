@@ -5,7 +5,7 @@
 ========================================================= */
 
 const API =
-  "https://charcoal-marketplace-main-production.up.railway.app/api";
+  "https://azma-backend-production.up.railway.app/api";
 
 
 /* =========================================================

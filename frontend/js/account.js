@@ -1,4 +1,4 @@
-const ACCOUNT_API = "https://charcoal-marketplace-main-production.up.railway.app/api";
+const ACCOUNT_API = "https://azma-backend-production.up.railway.app/api";
 
 function accountToken(){
   return localStorage.getItem("token");
@@ -22,7 +22,7 @@ function escapeHTML(value){
 
 function requireAccount(){
   if(!accountToken()){
-    window.location.replace("profile.html");
+    window.location.replace("../html/profile.html");
     return false;
   }
   return true;
@@ -31,7 +31,7 @@ function requireAccount(){
 function accountLogout(){
   localStorage.removeItem("token");
   localStorage.removeItem("user");
-  window.location.replace("profile.html");
+  window.location.replace("../html/profile.html");
 }
 
 function nav(){
@@ -332,7 +332,7 @@ function loadCart(){
     </div>`;
   }).join("")+
   `<div class="card"><strong>Total: ${total.toFixed(2)} Pi</strong><br>
-    <a class="action" href="checkout.html">Proceed to Checkout</a>
+    <a class="action" href="../html/checkout.html">Proceed to Checkout</a>
   </div>`;
 }
 

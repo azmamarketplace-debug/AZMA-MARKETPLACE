@@ -1,5 +1,5 @@
 const API =
-  "https://charcoal-marketplace-main-production.up.railway.app/api";
+  "https://azma-backend-production.up.railway.app/api";
 
 
 const $ =
@@ -478,7 +478,7 @@ async function loginWithPi() {
        */
 
       window.location.href =
-        "vendor.html";
+        "../html/vendor.html";
 
 
       return;

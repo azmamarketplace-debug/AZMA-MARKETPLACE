@@ -1,4 +1,4 @@
-const API= "https://charcoal-marketplace-main-production.up.railway.app/api";
+const API= "https://azma-backend-production.up.railway.app/api";
 
 const PI_SANDBOX =
   location.hostname.includes("sandbox.minepi.com") ||
